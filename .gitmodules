@@ -1,0 +1,7 @@
+[submodule "api"]
+  path = api
+  url = git@github.com:fvknk/udemy-jwt-app-api.git
+
+[submodule "front"]
+  path = front
+  url = git@github.com:fvknk/udemy-jwt-app-front.git
