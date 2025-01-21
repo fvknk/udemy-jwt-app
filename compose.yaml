@@ -4,6 +4,7 @@ services:
       context: ./api
     environment:
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      FRONT_DOMAIN: "localhost:$FRONT_PORT"
     volumes:
       - ./api:/app
     depends_on:
@@ -14,9 +15,12 @@ services:
   front:
     build:
       context: ./front
+      args:
+        API_URL: "http://localhost:$API_PORT"
     command: yarn run dev
     volumes:
       - ./front:/app
+    tmpfs: /tmp
     ports:
       - "$FRONT_PORT:3000"
     depends_on:
